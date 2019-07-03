@@ -1,0 +1,153 @@
+/* DETALLE DE LAS CARACTERÍSTICAS DE CADA OBJETO DEL HTML*/
+/* GENERAL */
+body {
+  /*background: url(imagen-congreso.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;*/
+  margin-left: 7.5%;
+  margin-right: 7.5%;
+  margin-top: 7.5%;
+  background-color: beige;
+}
+
+.email {
+  font-size: 18px;
+  font-family: sans-serif;
+  color: white;
+  position: absolute;
+  margin-left: 1150px;
+  padding-right: 20px;
+  padding-top: 15px;
+}
+
+h2 {
+  font-family: sans-serif;
+  font-size: 22px
+}
+
+header {
+  position: absolute;
+  z-index: 50px;
+
+}
+
+.img-responsive {
+  position: absolute;
+  height: 50px;
+  width: 100px;
+}
+
+.container-fluid {
+  position: fixed;
+  margin-left: 100px;
+}
+
+/* Información del home */
+#img1 {
+  position: relative;
+  height: 280px;
+  width: 420px;
+  padding-top: 50px;
+  float: right;
+}
+
+.info-home {
+  width: 60%;
+  padding-left: 20px;
+  text-align: justify;
+}
+
+/* Footer */
+.footer {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  background-color: #f8f8f8;
+}
+
+/* SENATE Y HOUSE DATA */
+.selectState {
+  position: relative;
+  float: right;
+}
+
+.infoSenadores {
+  font-family: serif;
+  font-size: 18px;
+  text-align: justify;
+}
+
+.infoCongresistas {
+  font-family: serif;
+  font-size: 18px;
+  text-align: justify;
+}
+
+/* ESTADISTICAS */
+/* TABLA: AT A GLANCE */
+.atAGlance {
+  font-family: serif;
+  font-size: 16px;
+  position: absolute;
+  margin-left: 45%;
+  margin-bottom: 100px;
+  width: 35%;
+}
+
+
+/* SENATE AND HOUSE PARTY-LOYALTY */
+.infoPartyLoyalty {
+  font-family: serif;
+  font-size: 20px;
+  text-align: justify;
+  position: absolute;
+  width: 45%;
+  margin-left: 1%;
+  padding-right: 12%;
+}
+
+.leastLoyal {
+  font-family: serif;
+  font-size: 16px;
+  position: absolute;
+  margin-top: 270px;
+  width: 35%;
+}
+
+.mostLoyal {
+  font-family: serif;
+  font-size: 16px;
+  position: absolute;
+  margin-left: 45%;
+  margin-top: 270px;
+  width: 35%;
+}
+
+
+/* SENATE AND HOUSE ATTENDANCE */
+.infoAttendance {
+  font-size: 17px;
+  font-family: serif;
+  text-align: justify;
+  position: absolute;
+  width: 40%;
+  margin-left: 1%
+}
+
+.leastEngaged {
+  font-family: serif;
+  font-size: 16px;
+  position: absolute;
+  margin-top: 300px;
+  width: 35%;
+}
+
+.mostEngaged {
+  font-family: serif;
+  font-size: 16px;
+  position: absolute;
+  margin-left: 45%;
+  margin-top: 300px;
+  width: 35%;
+}

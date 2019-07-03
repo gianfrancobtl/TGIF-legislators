@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Senate Starter Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- La siguiente linea permite establecer vinculos con la libreria de JQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <!-- La siguiente linea permite establecer vinculos con la libreria de Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <!-- la siguiente linea permite establecer un vínculo entre el archivo html y el archivo css -->
+  <link rel="stylesheet" href="tgif.css">
+</head>
+
+<body>
+  <!--lo siguiente es el header, que incluye el logo, el email y el nav-->
+  <header id="cajasuperior">
+    <!-- lo siguiente es el nav que contiene los menús desplegables -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <img class="img-responsive" src="img1.jpg" alt="logo">
+      <div class="email">
+        <span class="glyphicon glyphicon-envelope"></span><a href="mailto:info@tgif.net">nysl@chisoccer.org</a>
+      </div>
+      <div class="container-fluid">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="home.html">Home</a></li>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"> Congress 113 <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="house-data.html">House</a></li>
+              <li><a href="senate-data.html">Senate</a></li>
+            </ul>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"> Attendance <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="house-attendance.html">House</a></li>
+              <li><a href="senate-attendance.html">Senate</a></li>
+            </ul>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"> Party Loyalty <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="house-party-loyalty.html">House</a></li>
+              <li><a href="senate-party-loyalty.html">Senate</a></li>
+            </ul>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- información de los senadores -->
+  <div class="infoSenadores">
+    <h2>Senators</h2>
+    <p>First convened in 1789, the composition and powers of the Senate are established in Article One of the U.S. Constitution. Each state is represented by two senators, regardless of population, who serve staggered six-year terms. The Senate has several exclusive powers not granted to the House, including consenting to treaties as a precondition to their ratification and consenting to or confirming appointments of Cabinet secretaries, federal judges, other federal executive officials, military officers, regulatory officials, ambassadors, and other federal uniformed officers, as well as trial of federal officials impeached by the House.</p>
+  </div>
+
+  <form>
+    <!-- Los siguientes inputs permiten filtrar la tabla por partido seleccionado -->
+    <label>Filter by party:</label>
+    <input onchange="dibujarTablaRepresentantes(filtrarTablaCheckbox())" id="checkboxR" type="checkbox"> Republican
+    <input onchange="dibujarTablaRepresentantes(filtrarTablaCheckbox())" id="checkboxD" type="checkbox"> Democrat
+    <input onchange="dibujarTablaRepresentantes(filtrarTablaCheckbox())" id="checkboxI" type="checkbox"> Independent
+
+    <!-- Lo siguiente es el dropdown que permite filtrar la tabla por estados -->
+    <div selectOption onchange="dibujarTablaRepresentantes(filtrarEstados(filtrarTablaCheckbox()))" class="selectState">
+      <label>Filter by State:</label>
+      <select id="selectState">
+        <!-- El archivo JS que dibuja el dropdown se encuentra al final del html -->
+      </select>
+    </div>
+
+  </form>
+
+  <!--<script src="pro-congress-113-senate.js"></script>-->
+
+  <!-- Lo siguiente es la tabla realizada con VUE.js -->
+  <div class="subcontainer" id="app">
+    <table class="table table-striped table-dark">
+      <thead class="thead-dark">
+        <tr>
+          <th>Full Name</th>
+          <th>Party</th>
+          <th>State</th>
+          <th>Seniority</th>
+          <th>Percentage of votes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="senator in senators" :key="senator.id">
+          <td>{{senator.last_name}} {{senator.first_name}} {{senator.middle_name}}</td>
+          <td>{{senator.party}}</td>
+          <td>{{senator.state}}</td>
+          <td>{{senator.seniority}}</td>
+          <td>{{senator.votes_with_party_pct + '%'}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- botón que permite volver al header de la pagina estando abajo de la misma -->
+  <div id="botonVolver">
+    <a class="btn btn-primary" role="button" href="#cajasuperior">BACK TO TOP</a>
+  </div>
+
+  <!-- footer con los datos de los derechos reservados -->
+  <footer class="footer">
+    <div class="panel-body">©2016 TGIF | All rights reserved </div>
+  </footer>
+
+  <!-- El siguiente script hace referencia a toda la información de JavaScript utilizada en el presente HTML -->
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="JSON-senate.js"></script>
+
+</body></html>

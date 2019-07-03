@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>House Party Loyalty</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- La siguiente linea permite establecer vinculos con la libreria de JQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <!-- La siguiente linea permite establecer vinculos con la libreria de Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <!-- la siguiente linea permite establecer un vínculo entre el archivo html y el archivo css -->
+  <link rel="stylesheet" href="tgif.css">
+</head>
+
+<body>
+  <!--lo siguiente es el header, que incluye el logo, el email y el nav-->
+  <!--lo siguiente es el header, que incluye el logo, el email y el nav-->
+  <header id="cajasuperior">
+    <!-- lo siguiente es el nav que contiene los menús desplegables -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <img class="img-responsive" src="img1.jpg" alt="logo">
+      <div class="email">
+        <span class="glyphicon glyphicon-envelope"></span><a href="mailto:info@tgif.net">nysl@chisoccer.org</a>
+      </div>
+      <div class="container-fluid">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="home.html">Home</a></li>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"> Congress 113 <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="house-data.html">House</a></li>
+              <li><a href="senate-data.html">Senate</a></li>
+            </ul>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"> Attendance <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="house-attendance.html">House</a></li>
+              <li><a href="senate-attendance.html">Senate</a></li>
+            </ul>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"> Party Loyalty <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="house-party-loyalty.html">House</a></li>
+              <li><a href="senate-party-loyalty.html">Senate</a></li>
+            </ul>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!--Table container-->
+  <div class="infoPartyLoyalty">
+    <h2>Party Loyalty</h2>
+    <p>Those who consider themselves to be strong partisans, strong Democrats and strong Republicans respectively, tend to be the most faithful in voting for their party's nominee for office and legislation that backs their party's agenda. </p>
+  </div>
+
+  <div class="container" id="app">
+
+    <div class="atAGlance">
+      <h2>House at a glance</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Party</th>
+            <th>No. of Reps</th>
+            <th>% voted with party</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="party in partyInfo">
+            <td>{{party.party}}</td>
+            <td>{{party.numberOfMembers}}</td>
+            <td>{{party.percentajeOfVotes + '%'}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="leastLoyal">
+      <h2>Least Loyal (Bottom 10% of Party)</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>No. Party Votes</th>
+            <th>% Party Votes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="congresista in congresistasMenosFieles">
+            <td>{{congresista.last_name}} {{congresista.middle_name}} {{congresista.first_name}} </td>
+            <td>{{congresista.total_votes}}</td>
+            <td>{{congresista.votes_with_party_pct + '%'}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mostLoyal">
+      <h2>Most Loyal (Top 10% of Party)</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>No. Party Votes</th>
+            <th>% Party Votes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="congresista in congresistasMasFieles">
+            <td>{{congresista.last_name}} {{congresista.middle_name}} {{congresista.first_name}} </td>
+            <td>{{congresista.total_votes}}</td>
+            <td>{{congresista.votes_with_party_pct + '%'}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <!-- Las siguientes etiquetas "script" vinculan al html con dos archivos JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <!--<script src="pro-congress-113-senate.js"></script>-->
+  <script src="statistics-congressmen.js"></script>
+</body></html>

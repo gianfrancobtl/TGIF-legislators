@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="tgif.css"> <!-- Relacionado con un archivo css externo -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.js"></script>
+</head>
+
+
+<header>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <img class="img-responsive" src="img1.jpg" alt="logo">
+    <div class="email">
+      <span class="glyphicon glyphicon-envelope"></span><a href="mailto:info@tgif.net">nysl@chisoccer.org</a>
+    </div>
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="home.html">Home</a></li>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"> Congress 113 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="house-data.html">House</a></li>
+            <li><a href="senate-data.html">Senate</a></li>
+          </ul>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"> Attendance <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="house-attendance.html">House</a></li>
+            <li><a href="senate-attendance.html">Senate</a></li>
+          </ul>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"> Party Loyalty <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="house-party-loyalty.html">House</a></li>
+            <li><a href="senate-party-loyalty.html">Senate</a></li>
+          </ul>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<body>
+
+  <h1>Legislators</h1>
+  <script type="text/html" id="member-template">
+    <table>
+      <thead>
+        <th>Full Name</th>
+        <th>Party</th>
+        <th>Chamber</th>
+      </thead>
+      <tbody>
+        {{#members}}
+          <tr>
+            <td>{{full_name}}</td>
+            <td>{{party}}</td>
+            <td>{{chamber}}</td>
+          </tr>
+        {{/members}}
+      </tbody>
+    </table>
+  </script>
+  <script src="metadata.js"></script>
+  <script src="legislators.js"></script>
+  
+</body></html>
